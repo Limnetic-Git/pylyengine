@@ -24,7 +24,4 @@ scene.add_object(test)
 
 while not raylib.WindowShouldClose():
     scene.update()
-
-
 raylib.CloseWindow()
-

@@ -3,7 +3,7 @@ from Scene.Camera2D import *
 
 class Scene:
     def __init__(self, window):
-        self.camera = Camera2D()
+        self.camera = Camera2D(window)
         self.window = window
         self.objects = []
 

@@ -44,17 +44,51 @@ class Sprite2D(Module):
             return self.frames[0]
 
     def update(self):
-        if self.parent.visible:
-            raylib_ex.DrawTexture(
-                texture=self.window.source_manager[self.get_current_frame()],
-                position=(self.parent.x * self.parent.parent_scene.camera.zoom_x + self.parent.parent_scene.camera.x,
-                          self.parent.y * self.parent.parent_scene.camera.zoom_y + self.parent.parent_scene.camera.y),
-                rotation=(self.parent.angle),
-                scale=(self.parent.scale_x * self.parent.parent_scene.camera.zoom_x,
-                       self.parent.scale_y * self.parent.parent_scene.camera.zoom_y),
-                origin=self.parent.origin,
-                tint=self.parent.tint,
-                flip_x=self.parent.flip_x,
-                flip_y=self.parent.flip_y,
-            )
-    
+        if not self.parent.visible: return
+
+        screen_width = self.parent.parent_scene.window.width
+        screen_height = self.parent.parent_scene.window.height
+
+        camera = self.parent.parent_scene.camera
+
+        texture = self.window.source_manager[self.get_current_frame()]
+        texture_width = texture.width * abs(self.parent.scale_x) * camera.zoom_x
+        texture_height = texture.height * abs(self.parent.scale_y) * camera.zoom_y
+
+        world_x = self.parent.x * camera.zoom_x + camera.x
+        world_y = self.parent.y * camera.zoom_y + camera.y
+
+        if self.parent.origin:
+            origin_x = self.parent.origin[0] * self.parent.scale_x * camera.zoom_x
+            origin_y = self.parent.origin[1] * self.parent.scale_y * camera.zoom_y
+        else:
+            origin_x = texture_width / 2
+            origin_y = texture_height / 2
+
+        obj_left = world_x - origin_x
+        obj_top = world_y - origin_y
+        obj_right = obj_left + texture_width
+        obj_bottom = obj_top + texture_height
+
+        screen_left = 0
+        screen_top = 0
+        screen_right = screen_width
+        screen_bottom = screen_height
+
+        if (obj_right < screen_left or
+            obj_left > screen_right or
+            obj_bottom < screen_top or
+            obj_top > screen_bottom):
+            return
+
+        raylib_ex.DrawTexture(
+            texture=texture,
+            position=(world_x, world_y),
+            rotation=self.parent.angle,
+            scale=(self.parent.scale_x * camera.zoom_x,
+                self.parent.scale_y * camera.zoom_y),
+            origin=self.parent.origin,
+            tint=self.parent.tint,
+            flip_x=self.parent.flip_x,
+            flip_y=self.parent.flip_y,
+        )
