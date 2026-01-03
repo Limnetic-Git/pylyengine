@@ -4,7 +4,7 @@ import raylib
 class Movement(Module):
     def update(self):
         if not self.parent.get_module('Sprite2D'):
-            raise f'PyLyEngineError: Module "{self.__class__.__name__}" requires "Sprite2D" module'
+            raise Exception(f'PyLyEngineError: Module "{self.__class__.__name__}" requires "Sprite2D" module')
             return
 
         if not hasattr(self.parent, 'speed'):

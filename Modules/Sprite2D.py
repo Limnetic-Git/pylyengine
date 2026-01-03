@@ -4,12 +4,10 @@ from Modules.Module import *
 
 
 class Sprite2D(Module):
-    def __init__(self, frames, frame_delay=1, layer_id=0):
-        self.frames = frames
-        self.frame_delay = frame_delay
-        self.current_frame_index = 0
-        self.animation_tick = 0
-        self.layer_id = layer_id
+    def __init__(self, animation, layer=0):
+        self.animation = animation
+        print(f'! {type(self.animation)}')
+        self.layer_id = layer
 
     def set_parent(self, parent):
         super().set_parent(parent)
@@ -30,19 +28,6 @@ class Sprite2D(Module):
             if not hasattr(self.parent, attr):
                 setattr(self.parent, attr, default_value)
 
-    def get_current_frame(self):
-        if len(self.frames) > 1:
-            self.animation_tick += 1
-            if self.animation_tick % self.frame_delay == 0:
-                self.animation_tick = 0
-                if self.current_frame_index == len(self.frames) - 1:
-                    self.current_frame_index = 0
-                else:
-                    self.current_frame_index += 1
-            return self.frames[self.current_frame_index]
-        else:
-            return self.frames[0]
-
     def update(self):
         if not self.parent.visible: return
 
@@ -51,7 +36,7 @@ class Sprite2D(Module):
 
         camera = self.parent.parent_scene.camera
 
-        texture = self.window.source_manager[self.get_current_frame()]
+        texture = self.window.source_manager[self.animation.get_current_frame()]
         texture_width = texture.width * abs(self.parent.scale_x) * camera.zoom_x
         texture_height = texture.height * abs(self.parent.scale_y) * camera.zoom_y
 

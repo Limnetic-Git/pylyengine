@@ -4,13 +4,15 @@ from Objects.Player import *
 from Objects.Object import *
 from Modules.Sprite2D import *
 from Modules.Movement import *
+from Animation.Animation import*
 import raylib
 
 window = Window(1200, 800)
 scene = Scene(window)
 
 player = Player()
-player.add_module(Sprite2D(['0', '1', '2', '3'], 8, 1))
+player_run_animation = Animation(['0', '1', '2', '3'], 8)
+player.add_module(Sprite2D(animation=player_run_animation, layer=1))
 player.add_module(Movement())
 scene.add_object(player)
 
@@ -18,7 +20,8 @@ scene.add_object(player)
 scene.camera.set_focus_object(player)
 
 test = Object()
-test.add_module(Sprite2D(['rect_test']))
+test_idle_animation = Animation(['test'])
+test.add_module(Sprite2D(test_idle_animation))
 scene.add_object(test)
 
 
