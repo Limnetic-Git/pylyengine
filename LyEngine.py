@@ -33,7 +33,7 @@ scene.add_object(test)
 
 
 while not raylib.WindowShouldClose():
-    tile_map.update()
     scene.update()
+
 
 raylib.CloseWindow()

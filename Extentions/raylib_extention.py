@@ -86,3 +86,4 @@ def DrawTexture(texture, position, rotation, scale, window, camera, tint=raylib.
         flip_x=flip_x,
         flip_y=flip_y,
     )
+    window.debug_monitor.drawing_objects_count += 1

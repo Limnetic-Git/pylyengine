@@ -19,6 +19,7 @@ class Tilemap(Object):
         for x in range(self.world_width):
             for y in range(self.world_height):
                 texture = self.parent_scene.window.source_manager[self.default_block['texture']]
+
                 raylib_ex.DrawTexture(
                     texture=texture,
                     position=(x * texture.width, y * texture.height),
@@ -27,5 +28,7 @@ class Tilemap(Object):
                     window=self.parent_scene.window,
                     camera=self.parent_scene.camera,
                     )
+
+
         #super().update()
 

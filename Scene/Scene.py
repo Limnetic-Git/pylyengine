@@ -37,6 +37,7 @@ class Scene:
         for object in self.objects:
             object.update()
         self.camera.update()
+        self.window.debug_monitor.update()
 
         raylib.EndDrawing()
 
