@@ -1,15 +1,19 @@
 import Extentions.raylib_extention as raylib_ex
+from Objects.Object import *
 
-class Tilemap:
-    def __init__(self, scene, world_width, world_height, default_block):
-        self.parent_scene = scene
+class Tilemap(Object):
+    def __init__(self, world_width, world_height, default_block, layer=0):
+        self.name = 'tilemap'
+
+        self.layer_id = layer
         self.world_width = world_width
         self.world_height = world_height
         self.default_block = default_block
-        self.block_scale_x = 1.0
-        self.block_scale_y = 1.0
+        self.block_scale_x = 1
+        self.block_scale_y = 1
 
         self.world = [[default_block for _ in range(world_height)] for __ in range(world_width)]
+        super().__init__()
 
     def update(self):
         for x in range(self.world_width):
@@ -23,4 +27,5 @@ class Tilemap:
                     window=self.parent_scene.window,
                     camera=self.parent_scene.camera,
                     )
+        #super().update()
 

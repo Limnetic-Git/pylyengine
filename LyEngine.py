@@ -10,7 +10,10 @@ import raylib
 
 window = Window(1200, 800)
 scene = Scene(window)
-#tile_map = Tilemap(scene, 10, 10, {'texture': 'cobblestone'})
+
+
+tile_map = Tilemap(10, 10, {'texture': 'cobblestone'}, layer=0)
+scene.add_object(tile_map)
 
 player = Player()
 player_run_animation = Animation(['0', '1', '2', '3'], 8)
@@ -30,6 +33,7 @@ scene.add_object(test)
 
 
 while not raylib.WindowShouldClose():
+    tile_map.update()
     scene.update()
-    #tile_map.update()
+
 raylib.CloseWindow()

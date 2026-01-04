@@ -31,12 +31,12 @@ class Scene:
 
     def update(self):
         raylib.BeginDrawing()
-
         raylib.ClearBackground(raylib.WHITE)
 
-        self.camera.update()
         self.sort_objects_by_layer()
         for object in self.objects:
             object.update()
+        self.camera.update()
 
         raylib.EndDrawing()
+

@@ -6,7 +6,6 @@ from Modules.Module import *
 class Sprite2D(Module):
     def __init__(self, animation, layer=0):
         self.animation = animation
-        print(f'! {type(self.animation)}')
         self.layer_id = layer
 
     def set_parent(self, parent):
