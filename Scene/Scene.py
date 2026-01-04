@@ -22,6 +22,8 @@ class Scene:
 
     def get_layer_id(self, object):
         sprite_module = object.get_module('Sprite2D')
+        if hasattr(object, 'layer_id'):
+            return object.layer_id
         if sprite_module:
             return sprite_module.layer_id
         return 0
@@ -34,9 +36,9 @@ class Scene:
         raylib.ClearBackground(raylib.WHITE)
 
         self.sort_objects_by_layer()
+        self.camera.update()
         for object in self.objects:
             object.update()
-        self.camera.update()
         self.window.debug_monitor.update()
 
         raylib.EndDrawing()

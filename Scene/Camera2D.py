@@ -17,13 +17,13 @@ class Camera2D:
         self.focus_object = object
 
     def update(self):
-        if hasattr(self, 'focus_object'):
-            self.x = int(self.window.width // 2 - self.focus_object.x * self.zoom_x)
-            self.y = int(self.window.height // 2 - self.focus_object.y * self.zoom_y)
         wheel_move = raylib.GetMouseWheelMove()
         if wheel_move != 0:
             self.zoom_x += self.zoom_step * wheel_move
             self.zoom_y += self.zoom_step * wheel_move
+        if hasattr(self, 'focus_object'):
+            self.x = int(self.window.width // 2 - self.focus_object.x * self.zoom_x)
+            self.y = int(self.window.height // 2 - self.focus_object.y * self.zoom_y)
 
 
 
