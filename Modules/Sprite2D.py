@@ -9,11 +9,10 @@ class Sprite2D(Module):
         'flip_x': False, 'flip_y': False, 'visible': True
     }
 
-    def __init__(self, animation, layer=0):
-        self.animation = animation
+    def __init__(self, animation_name, layer=0):
+        self.animation_name = animation_name
         self.layer_id = layer
         self._texture_cache = None
-        self._texture_key = None
 
     def set_parent(self, parent):
         super().set_parent(parent)
@@ -25,10 +24,9 @@ class Sprite2D(Module):
         if not self.parent.visible:
             return
 
-        frame = self.animation.get_current_frame()
-        if frame != self._texture_key:
-            self._texture_key = frame
-            self._texture_cache = self.parent.parent_scene.window.source_manager[frame]
+        frame = self.parent.parent_scene.window.source_manager[self.animation_name].get_current_frame()
+        if frame != self._texture_cache:
+            self._texture_cache = frame
 
         raylib_ex.DrawTexture(
             texture=self._texture_cache,

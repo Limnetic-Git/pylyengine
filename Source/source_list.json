@@ -1,8 +1,5 @@
 {
-"idle_front_0": "Source/idle_front_0.png",
-"idle_front_1": "Source/idle_front_1.png",
-"idle_front_2": "Source/idle_front_2.png",
-"idle_front_3": "Source/idle_front_3.png",
+"player_idle_front_animation": "Source/player_idle_front_animation",
 
 "run_front_0": "Source/run_front_0.png",
 "run_front_1": "Source/run_front_1.png",

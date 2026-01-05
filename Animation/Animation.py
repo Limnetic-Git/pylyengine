@@ -1,5 +1,6 @@
 class Animation:
-    def __init__(self, frames, frame_delay=1):
+    def __init__(self, frames, source_manager, frame_delay=1):
+        self.source_manager = source_manager
         self.frames = frames
         self.frame_delay = frame_delay
         self.current_frame_index = 0
@@ -7,7 +8,7 @@ class Animation:
 
     def get_current_frame(self):
         self.animation_step()
-        return self.frames[self.current_frame_index]
+        return self.source_manager[self.frames[self.current_frame_index]]
 
     def animation_step(self):
         if len(self.frames) > 1:

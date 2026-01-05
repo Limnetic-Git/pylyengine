@@ -16,15 +16,14 @@ tile_map = Tilemap(
     world_height=128,
     default_block={'texture': 'cobblestone'},
     layer=0,
-    random_flip=False
+    random_flip=True
 )
 
 scene.add_object(tile_map)
 
 player = Player()
-player_idle_front_animation = Animation(['idle_front_0', 'idle_front_1', 'idle_front_2', 'idle_front_3'], 8)
 
-player.add_module(Sprite2D(animation=player_idle_front_animation, layer=1))
+player.add_module(Sprite2D(animation_name='player_idle_front_animation', layer=1))
 player.add_module(Movement())
 scene.add_object(player)
 
