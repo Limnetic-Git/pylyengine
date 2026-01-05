@@ -16,12 +16,14 @@ tile_map = Tilemap(128, 128, {'texture': 'cobblestone'}, layer=0)
 scene.add_object(tile_map)
 
 player = Player()
-player_run_animation = Animation(['0', '1', '2', '3'], 8)
-player.add_module(Sprite2D(animation=player_run_animation, layer=1))
+player_idle_front_animation = Animation(['idle_front_0', 'idle_front_1', 'idle_front_2', 'idle_front_3'], 8)
+
+player.add_module(Sprite2D(animation=player_idle_front_animation, layer=1))
 player.add_module(Movement())
 scene.add_object(player)
 
 scene.camera.set_focus_object(player)
+
 
 while not raylib.WindowShouldClose():
     scene.update()

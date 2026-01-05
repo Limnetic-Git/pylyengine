@@ -11,7 +11,7 @@ class SourceManager:
         
     def load_texture(self, texture_path, texture_name):
         self.sources[texture_name] = raylib.LoadTexture(texture_path.encode('utf-8'))
-    
+
     def __load_source_list(self):
         with open('Source/source_list.json') as f:
             data = ast.literal_eval(''.join(f.readlines()))
