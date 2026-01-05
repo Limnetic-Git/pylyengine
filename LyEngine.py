@@ -8,11 +8,17 @@ from Animation.Animation import*
 from Tilemap.Tilemap import *
 import raylib
 
-window = Window(1200, 800)
+window = Window(width=1200, height=800)
 scene = Scene(window)
 
+tile_map = Tilemap(
+    world_width=128,
+    world_height=128,
+    default_block={'texture': 'cobblestone'},
+    layer=0,
+    random_flip=False
+)
 
-tile_map = Tilemap(128, 128, {'texture': 'cobblestone'}, layer=0)
 scene.add_object(tile_map)
 
 player = Player()
@@ -24,9 +30,7 @@ scene.add_object(player)
 
 scene.camera.set_focus_object(player)
 
-
 while not raylib.WindowShouldClose():
     scene.update()
-
 
 raylib.CloseWindow()

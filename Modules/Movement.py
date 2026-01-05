@@ -5,7 +5,8 @@ class Movement(Module):
     def update(self):
         if not self.parent.get_module('Sprite2D'):
             raise Exception(f'PyLyEngineError: Module "{self.__class__.__name__}" requires "Sprite2D" module')
-            return
+
+        speed = self.parent.speed
 
         if not hasattr(self.parent, 'speed'):
             self.parent.speed = 1

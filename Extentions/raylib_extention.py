@@ -2,23 +2,12 @@ import raylib
 
 def DrawTextureRaw(texture, position, rotation, scale, tint=raylib.WHITE,
                             flip_x=False, flip_y=False, origin=None):
-    """
-    Рисует текстуру с поддержкой отражения.
-    Args:
-        texture: Текстура для отрисовки
-        position: Позиция (x, y)
-        rotation: Угол вращения в градусах
-        scale: Масштаб (может быть числом или (scale_x, scale_y))
-        tint: Цвет оттенка
-        flip_x: Отражение по горизонтали
-        flip_y: Отражение по вертикали
-        origin: Точка вращения (если None - центр)
-    """
+
     if isinstance(scale, (tuple, list)):
         scale_x, scale_y = scale
     else:
         scale_x = scale_y = scale
-    
+
     src_rect = [
         0,
         0,
@@ -29,7 +18,7 @@ def DrawTextureRaw(texture, position, rotation, scale, tint=raylib.WHITE,
     dest_width = texture.width * scale_x
     dest_height = texture.height * scale_y
     x, y = position
-    
+
     dest_rect = [x, y, dest_width, dest_height]
     if origin is None:
         origin = (dest_width / 2, dest_height / 2)
@@ -38,7 +27,6 @@ def DrawTextureRaw(texture, position, rotation, scale, tint=raylib.WHITE,
 
 def DrawTexture(texture, position, rotation, scale, window, camera, tint=raylib.WHITE,
                             flip_x=False, flip_y=False, origin=None):
-
 
     screen_width = window.width
     screen_height = window.height
@@ -64,14 +52,12 @@ def DrawTexture(texture, position, rotation, scale, window, camera, tint=raylib.
     obj_right = obj_left + texture_width
     obj_bottom = obj_top + texture_height
 
-    screen_left = 0
-    screen_top = 0
     screen_right = screen_width
     screen_bottom = screen_height
 
-    if (obj_right < screen_left or
+    if (obj_right < 0 or
         obj_left > screen_right or
-        obj_bottom < screen_top or
+        obj_bottom < 0 or
         obj_top > screen_bottom):
         return
 

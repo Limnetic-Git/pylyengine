@@ -9,9 +9,10 @@ class Window:
         self.height = height
         self.debug_monitor = DebugMonitor()
         
-        raylib.InitWindow(width, height, f"Game".encode())
+        raylib.InitWindow(width, height, f"My game on PyLyEngine".encode())
         raylib.SetTargetFPS(self.MAX_FPS)
-        
+        raylib.SetWindowState(raylib.FLAG_WINDOW_RESIZABLE)
+
         self.source_manager = SourceManager()
 
 
