@@ -1,6 +1,7 @@
 import raylib
 import Extentions.raylib_extention as raylib_ex
 from Modules.Module import *
+from Animation.Animation import *
 
 class Sprite2D(Module):
     _defaults = {
@@ -11,8 +12,9 @@ class Sprite2D(Module):
 
     def __init__(self, animation_name, layer=0):
         self.animation_name = animation_name
+        self.animation = None
         self.layer_id = layer
-        self._texture_cache = None
+        self._texture_name_cache = None
 
     def set_parent(self, parent):
         super().set_parent(parent)
@@ -24,12 +26,17 @@ class Sprite2D(Module):
         if not self.parent.visible:
             return
 
-        frame = self.parent.parent_scene.window.source_manager[self.animation_name].get_current_frame()
-        if frame != self._texture_cache:
-            self._texture_cache = frame
+        if self.animation_name != self._texture_name_cache:
+            self._texture_name_cache = self.animation_name
+            self.animation = Animation(
+                frames=self.parent.parent_scene.window.source_manager[self.animation_name],
+                source_manager=self.parent.parent_scene.window.source_manager,
+                frame_delay=8,
+            )
+        frame = self.animation.get_current_frame()
 
         raylib_ex.DrawTexture(
-            texture=self._texture_cache,
+            texture=frame,
             position=(self.parent.x, self.parent.y),
             rotation=self.parent.angle,
             scale=(self.parent.scale_x, self.parent.scale_y),

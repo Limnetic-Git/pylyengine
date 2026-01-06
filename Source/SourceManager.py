@@ -1,7 +1,6 @@
 import raylib
 import ast
 import os
-from Animation.Animation import *
 
 class SourceManager:
     def __init__(self):
@@ -16,7 +15,7 @@ class SourceManager:
             this_frame_name = frame.split('.')[0]
             self.load_texture(f'{dir_path}/{this_frame_name}.png', this_frame_name)
             animation_frames_list.append(this_frame_name)
-        self.sources[animation_name] = Animation(animation_frames_list, self, frame_delay=8)
+        self.sources[animation_name] = animation_frames_list
         #print(f"Loaded anim: {self.sources[animation_name].__dict__} - {animation_name}")
 
     def load_texture(self, texture_path, texture_name):

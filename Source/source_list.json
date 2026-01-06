@@ -1,29 +1,7 @@
 {
 "player_idle_front_animation": "Source/player_idle_front_animation",
-
-"run_front_0": "Source/run_front_0.png",
-"run_front_1": "Source/run_front_1.png",
-"run_front_2": "Source/run_front_2.png",
-"run_front_3": "Source/run_front_3.png",
-"run_front_4": "Source/run_front_4.png",
-"run_front_5": "Source/run_front_5.png",
-
-"run_side_0": "Source/run_side_0.png",
-"run_side_1": "Source/run_side_1.png",
-"run_side_2": "Source/run_side_2.png",
-"run_side_3": "Source/run_side_3.png",
-"run_side_4": "Source/run_side_4.png",
-"run_side_5": "Source/run_side_5.png",
-
-"run_back_0": "Source/run_back_0.png",
-"run_back_1": "Source/run_back_1.png",
-"run_back_2": "Source/run_back_2.png",
-"run_back_3": "Source/run_back_3.png",
-"run_back_4": "Source/run_back_4.png",
-"run_back_5": "Source/run_back_5.png",
-
-
-
+"player_run_side_animation": "Source/player_run_side_animation",
+"player_run_back_animation": "Source/player_run_back_animation",
 
 "test": "Source/test.png",
 "rect_test": "Source/rect_test.png",
