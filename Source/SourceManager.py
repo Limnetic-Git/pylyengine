@@ -19,15 +19,28 @@ class SourceManager:
         #print(f"Loaded anim: {self.sources[animation_name].__dict__} - {animation_name}")
 
     def load_texture(self, texture_path, texture_name):
-        self.sources[texture_name] = raylib.LoadTexture(texture_path.encode('utf-8'))
+        self.sources[texture_name] = raylib.LoadTexture(texture_path.encode())
+
+    def load_sound(self, sound_path, sound_name):
+        self.sources[sound_name] = raylib.LoadSound(sound_path.encode())
 
     def __load_source_list(self):
         with open('Source/source_list.json') as f:
-            data = ast.literal_eval(''.join(f.readlines()))
+            file_data = f.readlines()
+            for line in file_data:
+                try:
+                    if line[0] + line[1] == '//':
+                        file_data.remove(line)
+                except IndexError:
+                    pass
+
+            data = ast.literal_eval(''.join(file_data))
             
         for key in data:
             if '_animation' in key:
                 self.load_animation(data[key], key)
+            elif '_sound' in key:
+                self.load_sound(data[key], key)
             else:
                 self.load_texture(data[key], key)
         

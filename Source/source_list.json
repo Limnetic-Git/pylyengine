@@ -1,14 +1,16 @@
 {
+// ###### ANIMATIONS ######
 "player_idle_front_animation": "Source/player_idle_front_animation",
 "player_run_side_animation": "Source/player_run_side_animation",
 "player_run_back_animation": "Source/player_run_back_animation",
+"player_run_front_animation": "Source/player_run_front_animation",
 
+// ###### TEXTURES ######
 "test": "Source/test.png",
 "rect_test": "Source/rect_test.png",
 "cobblestone": "Source/cobblestone.png",
 
-
-
-
+// ###### SOUNDS ######
+"test_sound": "Source/powerUp.wav"
 
 }

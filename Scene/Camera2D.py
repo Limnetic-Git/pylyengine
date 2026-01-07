@@ -12,7 +12,6 @@ class Camera2D:
     def set_focus_object(self, object):
         if not object.get_module('Sprite2D'):
             raise Exception('PyLyEngineError: To focus camera on object, requires "Sprite2D" module')
-            return
 
         self.focus_object = object
 

@@ -12,6 +12,7 @@ class Window:
         raylib.InitWindow(width, height, f"My game on PyLyEngine".encode())
         raylib.SetTargetFPS(self.MAX_FPS)
         raylib.SetWindowState(raylib.FLAG_WINDOW_RESIZABLE)
+        raylib.InitAudioDevice()
 
         self.source_manager = SourceManager()
 
