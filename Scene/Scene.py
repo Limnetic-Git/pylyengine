@@ -35,6 +35,7 @@ class Scene:
         self._needs_layer_sort = False
 
     def update(self):
+        self.window.update()
         self.window.width = raylib.GetScreenWidth()
         self.window.height = raylib.GetScreenHeight()
 

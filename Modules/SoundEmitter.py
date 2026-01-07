@@ -3,9 +3,10 @@ import raylib
 import math
 
 class SoundEmitter(Module):
-    def __init__(self, sound_name, target_object):
+    def __init__(self, sounds_names, target_object):
         self.inited = False
-        self.current_sound_name = sound_name
+        self.sounds_names = sounds_names
+        self.current_sound_name = self.sounds_names[0]
         self.current_sound = None
         self.target_object = target_object
         self.hearing_range = 150
@@ -31,9 +32,10 @@ class SoundEmitter(Module):
 
     def play(self):
         self.current_sound = self.parent.parent_scene.window.source_manager[self.current_sound_name]
-        #print(self.volume)
+        print(self.volume)
         if self.volume and self.current_sound:
             raylib.SetSoundVolume(self.current_sound, self.volume)
             raylib.PlaySound(self.current_sound)
+
 
 

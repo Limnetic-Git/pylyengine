@@ -24,7 +24,6 @@ tile_map = Tilemap(
 scene.add_object(tile_map)
 
 player = Player()
-
 player.add_module(Sprite2D(animation_name='player_idle_front_animation', layer=1))
 player.add_module(Movement())
 scene.add_object(player)
@@ -32,7 +31,7 @@ scene.add_object(player)
 
 test = TestObject()
 test.add_module(Sprite2D(animation_name='player_idle_front_animation', layer=2))
-test.add_module(SoundEmitter(sound_name='test_sound', target_object=player))
+test.add_module(SoundEmitter(sounds_names=['test_sound'], target_object=player))
 scene.add_object(test)
 
 scene.camera.set_focus_object(player)

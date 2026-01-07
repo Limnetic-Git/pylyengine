@@ -8,6 +8,8 @@ class Window:
         self.width = width
         self.height = height
         self.debug_monitor = DebugMonitor()
+        self.mouse_x = 0
+        self.mouse_y = 0
         
         raylib.InitWindow(width, height, f"My game on PyLyEngine".encode())
         raylib.SetTargetFPS(self.MAX_FPS)
@@ -15,6 +17,11 @@ class Window:
         raylib.InitAudioDevice()
 
         self.source_manager = SourceManager()
+
+    def update(self):
+        self.mouse_x = raylib.GetMouseX()
+        self.mouse_y = raylib.GetMouseY()
+
 
 
         
