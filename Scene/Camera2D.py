@@ -1,8 +1,8 @@
 import raylib
 
 class Camera2D:
-    def __init__(self, window):
-        self.window = window
+    def __init__(self, scene):
+        self.window = scene.window
         self.x = 0
         self.y = 0
         self.zoom_x = 1.0

@@ -3,10 +3,10 @@ from Scene.Camera2D import *
 
 class Scene:
     def __init__(self, window):
-        self.camera = Camera2D(window)
         self.window = window
         self.objects = []
         self._needs_layer_sort = False
+        self.camera = Camera2D(self)
 
     def add_object(self, object):
         sprite_module = object.get_module('Sprite2D')

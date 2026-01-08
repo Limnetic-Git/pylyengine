@@ -10,8 +10,9 @@ class Sprite2D(Module):
         'flip_x': False, 'flip_y': False, 'visible': True
     }
 
-    def __init__(self, animation_name, layer=0):
+    def __init__(self, animation_name=None, texture_name=None, layer=0):
         self.animation_name = animation_name
+        self.texture_name = texture_name
         self.animation = None
         self.layer_id = layer
         self._texture_name_cache = None
