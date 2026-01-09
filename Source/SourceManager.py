@@ -33,7 +33,6 @@ class SourceManager:
                         file_data.remove(line)
                 except IndexError:
                     pass
-
             data = ast.literal_eval(''.join(file_data))
             
         for key in data:

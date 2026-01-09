@@ -1,0 +1,40 @@
+{
+"Button": {
+    "default": {
+        "main_color": [35, 35, 50, 255],
+        "text_color": [255, 255, 255, 255],
+        "outline_color": [255, 255, 255, 255],
+        "outline_width": 3,
+    },
+    "hover": {
+        "main_color": [25, 25, 40, 255],
+        "text_color": [255, 255, 255, 255],
+        "outline_color": [255, 100, 100, 255],
+        "outline_width": 5,
+    },
+    "press": {
+        "main_color": [25, 25, 40, 255],
+        "text_color": [255, 255, 255, 255],
+        "outline_color": [255, 100, 100, 255],
+        "outline_width": 3,
+    },
+
+    "roundness": 0.25,
+    "segments": 25,
+},
+
+"Area": {
+    "default": {
+        "main_color": [35, 35, 50, 255],
+        "outline_color": [255, 255, 255, 255],
+        "outline_width": 3,
+    },
+    "roundness": 0,
+    "segments": 0,
+
+
+}
+
+
+
+}

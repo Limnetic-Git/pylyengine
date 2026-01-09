@@ -8,10 +8,17 @@ from Modules.Movement import *
 from Modules.SoundEmitter import *
 from Animation.Animation import*
 from Tilemap.Tilemap import *
+from UI.UILayer import *
 import raylib
 
 window = Window(width=1200, height=800)
 scene = Scene(window)
+
+scene.add_ui_layer(UILayer())
+scene.ui_layer.create_area(0.1, 0.1, 0.8, 0.8)
+scene.ui_layer.create_button(0.2, 0.2, 0.2, 0.2, 'hello!!!!')
+
+
 
 tile_map = Tilemap(
     world_width=128,

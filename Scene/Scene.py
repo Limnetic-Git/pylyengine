@@ -8,6 +8,11 @@ class Scene:
         self._needs_layer_sort = False
         self.camera = Camera2D(self)
 
+
+    def add_ui_layer(self, ui_layer):
+        ui_layer.set_parent_scene(self)
+        self.ui_layer = ui_layer
+
     def add_object(self, object):
         sprite_module = object.get_module('Sprite2D')
         if sprite_module:
@@ -47,6 +52,9 @@ class Scene:
         for object in self.objects:
             object.update()
         self.window.debug_monitor.update()
+
+        if hasattr(self, 'ui_layer'):
+            self.ui_layer.update()
 
         raylib.EndDrawing()
 
