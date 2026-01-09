@@ -16,6 +16,7 @@ class Button:
         self.width = 0
         self.height = 0
         self.text_size = 20
+        self.render_mode = 'default'
         self.update_position()
 
         self.on_click_action = func
@@ -23,6 +24,8 @@ class Button:
 
     def update_position(self):
         window = self.ui_layer.parent_scene.window
+        self.max_text_size = self.ui_layer.ui_theme['Button'][self.render_mode]['max_text_size']
+        self.min_text_size = self.ui_layer.ui_theme['Button'][self.render_mode]['min_text_size']
         self.x = int(window.width * self.rel_x)
         self.y = int(window.height * self.rel_y)
         self.width = int(window.width * self.rel_width)
@@ -37,12 +40,12 @@ class Button:
         self.update_position()
         window = self.ui_layer.parent_scene.window
 
-        render_mode = 'default'
+        self.render_mode = 'default'
         if window.mouse_x >= self.x and window.mouse_x <= self.x + self.width and \
            window.mouse_y >= self.y and window.mouse_y <= self.y + self.height:
-               render_mode = 'hover'
+               self.render_mode = 'hover'
                if raylib.IsMouseButtonDown(0):
-                   render_mode = 'press'
+                   self.render_mode = 'press'
                if raylib.IsMouseButtonReleased(0):
                    self.on_click()
 
@@ -50,17 +53,22 @@ class Button:
             [self.x, self.y, self.width, self.height],
             self.ui_layer.ui_theme['Button']['roundness'],
             self.ui_layer.ui_theme['Button']['segments'],
-            self.ui_layer.ui_theme['Button'][render_mode]['main_color']
+            self.ui_layer.ui_theme['Button'][self.render_mode]['main_color']
         )
         raylib.DrawRectangleRoundedLinesEx(
             [self.x, self.y, self.width, self.height],
             self.ui_layer.ui_theme['Button']['roundness'],
             self.ui_layer.ui_theme['Button']['segments'],
-            self.ui_layer.ui_theme['Button'][render_mode]['outline_width'],
-            self.ui_layer.ui_theme['Button'][render_mode]['outline_color'],
+            self.ui_layer.ui_theme['Button'][self.render_mode]['outline_width'],
+            self.ui_layer.ui_theme['Button'][self.render_mode]['outline_color'],
         )
 
         text_width = raylib.MeasureText(self.text, self.text_size)
         text_x = self.x + (self.width - text_width) // 2
         text_y = self.y + (self.height - self.text_size) // 2
-        raylib.DrawText(self.text, text_x, text_y, self.text_size, self.ui_layer.ui_theme['Button'][render_mode]['text_color'])
+        raylib.DrawText(self.text,
+                        text_x,
+                        text_y,
+                        self.text_size,
+                        self.ui_layer.ui_theme['Button'][self.render_mode]['text_color']
+        )

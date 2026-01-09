@@ -17,8 +17,8 @@ scene = Scene(window)
 scene.add_ui_layer(UILayer())
 scene.ui_layer.create_area(0.1, 0.1, 0.8, 0.8)
 scene.ui_layer.create_button(0.2, 0.2, 0.2, 0.2, 'hello!!!!')
-
-
+scene.ui_layer.create_text(0.5, 0.2, 0.2, 0.2, 'qwertyuiop')
+scene.ui_layer.create_slider(0.2, 0.5, 0.3, 0.01, 1, 100, 10)
 
 tile_map = Tilemap(
     world_width=128,

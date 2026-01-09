@@ -3,20 +3,26 @@
     "default": {
         "main_color": [35, 35, 50, 255],
         "text_color": [255, 255, 255, 255],
+        "max_text_size": 36,
+        "min_text_size": 12,
         "outline_color": [255, 255, 255, 255],
         "outline_width": 3,
     },
     "hover": {
         "main_color": [25, 25, 40, 255],
         "text_color": [255, 255, 255, 255],
-        "outline_color": [255, 100, 100, 255],
-        "outline_width": 5,
+        "max_text_size": 36,
+        "min_text_size": 12,
+        "outline_color": [255, 255, 255, 255],
+        "outline_width": 3,
     },
     "press": {
         "main_color": [25, 25, 40, 255],
-        "text_color": [255, 255, 255, 255],
-        "outline_color": [255, 100, 100, 255],
-        "outline_width": 3,
+        "text_color": [200, 200, 255, 255],
+        "max_text_size": 36,
+        "min_text_size": 12,
+        "outline_color": [100, 100, 255, 255],
+        "outline_width": 5,
     },
 
     "roundness": 0.25,
@@ -25,16 +31,53 @@
 
 "Area": {
     "default": {
-        "main_color": [35, 35, 50, 255],
+        "main_color": [55, 55, 70, 250],
         "outline_color": [255, 255, 255, 255],
         "outline_width": 3,
     },
-    "roundness": 0,
-    "segments": 0,
+    "roundness": 0.25,
+    "segments": 25,
+},
 
-
+"Text": {
+    "default": {
+        "text_color": [255, 255, 255, 255],
+        "max_text_size": 36,
+        "min_text_size": 12,
+    }
+},
+"Slider": {
+    "track_height": 8,
+    "track_roundness": 0.25,
+    "handle_roundness": 0.25,
+    "segments": 25,
+    "show_value": True,
+    "value_position": "above",
+    "value_text_size": 16,
+    "default": {
+        "track_color": [35, 35, 50, 255],
+        "filled_color": [100, 100, 130, 255],
+        "handle_color": [35, 35, 50, 255],
+        "handle_outline_color": [255, 255, 255, 255],
+        "handle_outline_width": 3,
+        "value_text_color": [255, 255, 255, 255]
+    },
+    "hover": {
+        "track_color": [25, 25, 40, 255],
+        "filled_color": [80, 80, 110, 255],
+        "handle_color": [25, 25, 40, 255],
+        "handle_outline_color": [255, 255, 255, 255],
+        "handle_outline_width": 3,
+        "value_text_color": [255, 255, 255, 255]
+    },
+    "press": {
+        "track_color": [25, 25, 40, 255],
+        "filled_color": [100, 100, 255, 255],
+        "handle_color": [25, 25, 40, 255],
+        "handle_outline_color": [100, 100, 255, 255],
+        "handle_outline_width": 3,
+        "value_text_color": [200, 200, 255, 255]
+    }
 }
-
-
 
 }

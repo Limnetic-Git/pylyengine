@@ -1,5 +1,7 @@
 from UI.UI_Elements.Button import *
 from UI.UI_Elements.Area import *
+from UI.UI_Elements.Text import *
+from UI.UI_Elements.Slider import *
 import ast
 import os
 
@@ -26,9 +28,12 @@ class UILayer:
 
     def create_button(self, rel_x, rel_y, rel_width, rel_height, text='', func=print, args=['ButtonPressed']):
         self.ui_elements.append(Button(self, rel_x, rel_y, rel_width, rel_height, text, func, args))
-
     def create_area(self, rel_x, rel_y, rel_width, rel_height):
         self.ui_elements.append(Area(self, rel_x, rel_y, rel_width, rel_height))
+    def create_text(self, rel_x, rel_y, rel_width, rel_height, text=''):
+        self.ui_elements.append(Text(self, rel_x, rel_y, rel_width, rel_height, text))
+    def create_slider(self, rel_x, rel_y, rel_width, rel_height, min_value, max_value, initial_value, on_change_func=print, on_change_args=['value changed']):
+        self.ui_elements.append(Slider(self, rel_x, rel_y, rel_width, rel_height, min_value, max_value, initial_value, on_change_func, on_change_args))
 
     def update(self):
         for element in self.ui_elements:

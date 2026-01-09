@@ -32,7 +32,7 @@ class SoundEmitter(Module):
 
     def play(self):
         self.current_sound = self.parent.parent_scene.window.source_manager[self.current_sound_name]
-        print(self.volume)
+        #print(self.volume)
         if self.volume and self.current_sound:
             raylib.SetSoundVolume(self.current_sound, self.volume)
             raylib.PlaySound(self.current_sound)

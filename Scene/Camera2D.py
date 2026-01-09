@@ -21,7 +21,7 @@ class Camera2D:
     def update(self):
         self.mouse_world_x = int((self.window.mouse_x - self.x) / self.zoom_x)
         self.mouse_world_y = int((self.window.mouse_y - self.y) / self.zoom_y)
-        print(self.mouse_world_x, self.mouse_world_y)
+        #print(self.mouse_world_x, self.mouse_world_y)
 
         wheel_move = raylib.GetMouseWheelMove()
         if wheel_move != 0:
