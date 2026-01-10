@@ -19,7 +19,9 @@ scene.ui_layer.create_area(0.1, 0.1, 0.8, 0.8)
 scene.ui_layer.create_button(0.2, 0.2, 0.2, 0.2, 'hello!!!!')
 scene.ui_layer.create_text(0.5, 0.2, 0.2, 0.2, 'qwertyuiop')
 scene.ui_layer.create_slider(0.2, 0.5, 0.3, 0.01, 1, 100, 10)
-
+scene.ui_layer.create_checkbox(0.6, 0.5, 0.03, 'hi')
+scene.ui_layer.create_input_field(0.4, 0.7, 0.3, 0.03)
+#rel_x, rel_y, rel_size, text, initial_checked=False, on_change_func=None, on_change_args=None
 tile_map = Tilemap(
     world_width=128,
     world_height=128,

@@ -2,6 +2,8 @@ from UI.UI_Elements.Button import *
 from UI.UI_Elements.Area import *
 from UI.UI_Elements.Text import *
 from UI.UI_Elements.Slider import *
+from UI.UI_Elements.Checkbox import *
+from UI.UI_Elements.Inputfield import *
 import ast
 import os
 
@@ -28,12 +30,21 @@ class UILayer:
 
     def create_button(self, rel_x, rel_y, rel_width, rel_height, text='', func=print, args=['ButtonPressed']):
         self.ui_elements.append(Button(self, rel_x, rel_y, rel_width, rel_height, text, func, args))
+
     def create_area(self, rel_x, rel_y, rel_width, rel_height):
         self.ui_elements.append(Area(self, rel_x, rel_y, rel_width, rel_height))
+
     def create_text(self, rel_x, rel_y, rel_width, rel_height, text=''):
         self.ui_elements.append(Text(self, rel_x, rel_y, rel_width, rel_height, text))
+
     def create_slider(self, rel_x, rel_y, rel_width, rel_height, min_value, max_value, initial_value, on_change_func=print, on_change_args=['value changed']):
         self.ui_elements.append(Slider(self, rel_x, rel_y, rel_width, rel_height, min_value, max_value, initial_value, on_change_func, on_change_args))
+
+    def create_checkbox(self, rel_x, rel_y, rel_size, text, initial_checked=False, on_change_func=None, on_change_args=None):
+        self.ui_elements.append(Checkbox(self, rel_x, rel_y, rel_size, text, initial_checked, on_change_func, on_change_args))
+
+    def create_input_field(self, rel_x, rel_y, rel_width, rel_height, initial_text="", max_length=100, on_enter_func=None, on_enter_args=None):
+        self.ui_elements.append(InputField(self, rel_x, rel_y, rel_width, rel_height, initial_text, max_length, on_enter_func, on_enter_args))
 
     def update(self):
         for element in self.ui_elements:

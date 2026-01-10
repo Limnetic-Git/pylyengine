@@ -78,6 +78,80 @@
         "handle_outline_width": 3,
         "value_text_color": [200, 200, 255, 255]
     }
+},
+
+"Checkbox": {
+    "default": {
+        "box_color": [35, 35, 50, 255],
+        "text_color": [255, 255, 255, 255],
+        "check_color": [255, 255, 255, 255],
+        "outline_color": [255, 255, 255, 255],
+        "outline_width": 3,
+        "check_width": 3,
+        "max_text_size": 36,
+        "min_text_size": 12
+    },
+    "hover": {
+        "box_color": [25, 25, 40, 255],
+        "text_color": [255, 255, 255, 255],
+        "check_color": [255, 255, 255, 255],
+        "outline_color": [255, 255, 255, 255],
+        "outline_width": 3,
+        "check_width": 3,
+        "max_text_size": 36,
+        "min_text_size": 12
+    },
+    "press": {
+        "box_color": [25, 25, 40, 255],
+        "text_color": [200, 200, 255, 255],
+        "check_color": [200, 200, 255, 255],
+        "outline_color": [100, 100, 255, 255],
+        "outline_width": 3,
+        "check_width": 3,
+        "max_text_size": 36,
+        "min_text_size": 12
+    },
+    "roundness": 0.25,
+    "segments": 25
+},
+
+"InputField": {
+    "default": {
+        "background_color": [35, 35, 50, 255],
+        "text_color": [255, 255, 255, 255],
+        "cursor_color": [255, 255, 255, 255],
+        "counter_color": [200, 200, 200, 255],
+        "outline_color": [255, 255, 255, 255],
+        "outline_width": 3,
+        "cursor_width": 2,
+        "max_text_size": 36,
+        "min_text_size": 12
+    },
+    "hover": {
+        "background_color": [25, 25, 40, 255],
+        "text_color": [255, 255, 255, 255],
+        "cursor_color": [255, 255, 255, 255],
+        "counter_color": [200, 200, 200, 255],
+        "outline_color": [255, 255, 255, 255],
+        "outline_width": 3,
+        "cursor_width": 2,
+        "max_text_size": 36,
+        "min_text_size": 12
+    },
+    "press": {
+        "background_color": [25, 25, 40, 255],
+        "text_color": [255, 255, 255, 255],
+        "cursor_color": [200, 200, 255, 255],
+        "counter_color": [200, 200, 255, 255],
+        "outline_color": [100, 100, 255, 255],
+        "outline_width": 3,
+        "cursor_width": 3,
+        "max_text_size": 36,
+        "min_text_size": 12
+    },
+    "roundness": 0.25,
+    "segments": 25,
+    "show_counter": True
 }
 
 }
