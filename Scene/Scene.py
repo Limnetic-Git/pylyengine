@@ -5,13 +5,15 @@ class Scene:
     def __init__(self, window):
         self.window = window
         self.objects = []
+        self.ui_scenes = []
+        self.current_ui_scene_index = 0
         self._needs_layer_sort = False
         self.camera = Camera2D(self)
 
 
-    def add_ui_layer(self, ui_layer):
-        ui_layer.set_parent_scene(self)
-        self.ui_layer = ui_layer
+    def add_ui_scene(self, ui_scene):
+        ui_scene.set_parent_scene(self)
+        self.ui_scenes.append(ui_scene)
 
     def add_object(self, object):
         sprite_module = object.get_module('Sprite2D')
@@ -53,8 +55,8 @@ class Scene:
             object.update()
         self.window.debug_monitor.update()
 
-        if hasattr(self, 'ui_layer'):
-            self.ui_layer.update()
+        if self.ui_scenes:
+            self.ui_scenes[self.current_ui_scene_index].update()
 
         raylib.EndDrawing()
 
