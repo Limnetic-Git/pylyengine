@@ -4,6 +4,8 @@ from UI.UI_Elements.Text import *
 from UI.UI_Elements.Slider import *
 from UI.UI_Elements.Checkbox import *
 from UI.UI_Elements.Inputfield import *
+from UI.UI_Elements.Texture import *
+from UI.UI_Elements.Slotlist import *
 import ast
 import os
 
@@ -45,6 +47,12 @@ class UIScene:
 
     def create_input_field(self, rel_x, rel_y, rel_width, rel_height, initial_text="", max_length=100, on_enter_func=None, on_enter_args=None):
         self.ui_elements.append(InputField(self, rel_x, rel_y, rel_width, rel_height, initial_text, max_length, on_enter_func, on_enter_args))
+
+    def create_texture(self, rel_x, rel_y, rel_width, rel_height, texture_name=None, tint=raylib.WHITE):
+        self.ui_elements.append(Texture(self, rel_x, rel_y, rel_width, rel_height, texture_name, tint))
+
+    def create_slotlist(self, array, rel_x, rel_y, slot_size, distance_between=5):
+        self.ui_elements.append(Slotlist(self, array, rel_x, rel_y, slot_size, distance_between))
 
     def update(self):
         for element in self.ui_elements:
