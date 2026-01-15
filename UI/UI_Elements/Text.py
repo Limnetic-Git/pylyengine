@@ -1,13 +1,13 @@
 import raylib
 
 class Text:
-    def __init__(self, ui_layer, rel_x, rel_y, rel_width, rel_height, text):
+    def __init__(self, ui_layer, rel_x, rel_y, rel_width, rel_height, text, text_color):
         self.ui_layer = ui_layer
         self.rel_x = rel_x
         self.rel_y = rel_y
         self.rel_width = rel_width
         self.rel_height = rel_height
-        self.text = text.encode()
+        self.text = str(text).encode()
         self.rel_text_size = 0.4
         self.min_text_size = 36
         self.max_text_size = 56
@@ -16,6 +16,7 @@ class Text:
         self.width = 0
         self.height = 0
         self.text_size = 36
+        self.text_color = text_color
         self.render_mode = 'default'
         self.update_position()
 
@@ -40,4 +41,4 @@ class Text:
         text_width = raylib.MeasureText(self.text, self.text_size)
         text_x = self.x + (self.width - text_width) // 2
         text_y = self.y + (self.height - self.text_size) // 2
-        raylib.DrawText(self.text, text_x, text_y, self.text_size, self.ui_layer.ui_theme['Text'][self.render_mode]['text_color'])
+        raylib.DrawText(self.text, text_x, text_y, self.text_size, self.text_color)

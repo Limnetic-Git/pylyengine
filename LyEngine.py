@@ -17,18 +17,13 @@ window = Window(width=1200, height=800)
 scene = Scene(window)
 
 inv = Inventory(9, 5)
-inv.give(Item('Test', 'block', 16), 24)
+inv.give(Item('Test', 'block', 'test', 16), 300)
+inv.give(Item('Test2', 'block', 'rect_test', 16), 300)
 
 scene.add_ui_scene(UIScene())
 scene.ui_scenes[0].create_area(0.1, 0.1, 0.8, 0.8)
-scene.ui_scenes[0].create_button(0.2, 0.2, 0.2, 0.2, 'hello!!!!')
-scene.ui_scenes[0].create_text(0.5, 0.2, 0.2, 0.2, 'qwertyuiop\nsvyatoslav loh')
-scene.ui_scenes[0].create_slider(0.2, 0.5, 0.3, 0.01, 1, 100, 10)
-scene.ui_scenes[0].create_checkbox(0.6, 0.5, 0.03, 'hi')
-scene.ui_scenes[0].create_input_field(0.4, 0.7, 0.3, 0.03)
-scene.ui_scenes[0].create_texture(0.6, 0.555, 0.1, 0.1, 'test')
-scene.ui_scenes[0].create_slotlist(inv.inventory, 0.05, 0.05, 64)
-#rel_x, rel_y, rel_size, text, initial_checked=False, on_change_func=None, on_change_args=None
+scene.ui_scenes[0].create_slotlist(inv.inventory, 0.2, 0.2, 64)
+
 tile_map = Tilemap(
     world_width=128,
     world_height=128,

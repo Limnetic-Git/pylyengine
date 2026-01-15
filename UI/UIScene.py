@@ -36,8 +36,8 @@ class UIScene:
     def create_area(self, rel_x, rel_y, rel_width, rel_height):
         self.ui_elements.append(Area(self, rel_x, rel_y, rel_width, rel_height))
 
-    def create_text(self, rel_x, rel_y, rel_width, rel_height, text=''):
-        self.ui_elements.append(Text(self, rel_x, rel_y, rel_width, rel_height, text))
+    def create_text(self, rel_x, rel_y, rel_width, rel_height, text='', text_color=raylib.WHITE):
+        self.ui_elements.append(Text(self, rel_x, rel_y, rel_width, rel_height, text, text_color))
 
     def create_slider(self, rel_x, rel_y, rel_width, rel_height, min_value, max_value, initial_value, on_change_func=print, on_change_args=['value changed']):
         self.ui_elements.append(Slider(self, rel_x, rel_y, rel_width, rel_height, min_value, max_value, initial_value, on_change_func, on_change_args))
