@@ -22,12 +22,13 @@ class Movement(Module):
         if raylib.IsKeyDown(raylib.KEY_A):
             self.parent.x -= self.parent.speed
 
+
         if raylib.IsKeyDown(raylib.KEY_S):
             self.parent.y += self.parent.speed
 
+
         if raylib.IsKeyDown(raylib.KEY_D):
             self.parent.x += self.parent.speed
-
 
 
 

@@ -14,6 +14,3 @@ class TestObject(Object):
             self.get_module('SoundEmitter').play()
 
 
-
-
-

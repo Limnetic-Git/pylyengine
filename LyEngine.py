@@ -21,16 +21,17 @@ inv.give(Item('Test', 'block', 'test', 16), 300)
 inv.give(Item('Test2', 'block', 'rect_test', 16), 300)
 
 scene.add_ui_scene(UIScene())
-scene.ui_scenes[0].create_area(0.1, 0.1, 0.8, 0.8)
-scene.ui_scenes[0].create_slotlist(inv.inventory, 0.2, 0.2, 64)
+#scene.ui_scenes[0].create_area(0.1, 0.1, 0.8, 0.8)
+#scene.ui_scenes[0].create_slotlist(inv.inventory, 0.2, 0.2, 64)
 
 tile_map = Tilemap(
     world_width=128,
     world_height=128,
-    default_block={'texture': 'cobblestone'},
+    default_block={'texture': 'cobblestone', 'solid': True},
     layer=0,
     random_flip=True
 )
+tile_map.world[10][0] = {'texture': 'rect_test', 'solid': False, 'flip_x': False, 'flip_y': False}
 
 scene.add_object(tile_map)
 

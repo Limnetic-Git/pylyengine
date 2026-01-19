@@ -45,6 +45,11 @@ class Player(Object):
             if sprite2d_module.animation_name != 'player_idle_front_animation':
                 sprite2d_module.animation_name = 'player_idle_front_animation'
 
+        if raylib.IsKeyPressed(raylib.KEY_E):
+            for object in self.parent_scene.objects:
+                if hasattr(object, 'name') and object.name == 'tilemap':
+                    x, y = self.x, self.y
+                    print(object.get_tile_cords_under(x, y))
 
 
 
