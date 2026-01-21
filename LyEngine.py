@@ -31,7 +31,7 @@ tile_map = Tilemap(
     layer=0,
     random_flip=True
 )
-tile_map.world[10][0] = {'texture': 'rect_test', 'solid': False, 'flip_x': False, 'flip_y': False}
+tile_map.world[0][0] = {'texture': 'rect_test', 'solid': False, 'flip_x': False, 'flip_y': False}
 
 scene.add_object(tile_map)
 

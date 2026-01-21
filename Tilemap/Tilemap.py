@@ -72,5 +72,5 @@ class Tilemap(Object):
     def get_tile_cords_under(self, x, y):
         window = self.parent_scene.window
         texture = window.source_manager[self.default_block['texture']]
-        return [(x + texture.width // 2) // (texture.width *  self.block_scale_x),
-                (y + texture.height // 2) // (texture.height * self.block_scale_y)]
+        return [int((x + texture.width // 2) // (texture.width *  self.block_scale_x)),
+                int((y + texture.height // 2) // (texture.height * self.block_scale_y))]

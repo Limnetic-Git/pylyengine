@@ -9,8 +9,9 @@
 "test": "Source/test.png",
 "rect_test": "Source/rect_test.png",
 "cobblestone": "Source/cobblestone.png",
+"cobblestone_1": "Source/cobblestone_1.png",
+"cobblestone_2": "Source/cobblestone_2.png",
 
 // ###### SOUNDS ######
 "test_sound": "Source/powerUp.wav"
-
 }

@@ -50,6 +50,20 @@ class Player(Object):
                 if hasattr(object, 'name') and object.name == 'tilemap':
                     x, y = self.x, self.y
                     print(object.get_tile_cords_under(x, y))
+        if raylib.IsMouseButtonReleased(0):
+            x = self.parent_scene.camera.mouse_x + 6
+            y = self.parent_scene.camera.mouse_y + 6
+            for object in self.parent_scene.objects:
+                if hasattr(object, 'name') and object.name == 'tilemap':
+                    bx, by = object.get_tile_cords_under(x, y)
+                    if object.world[bx][by]['texture'] == 'cobblestone':
+                        object.world[bx][by]['texture'] = 'cobblestone_1'
+                    elif object.world[bx][by]['texture'] == 'cobblestone_1':
+                        object.world[bx][by]['texture'] = 'cobblestone_2'
+                    elif object.world[bx][by]['texture'] == 'cobblestone_2':
+                        object.world[bx][by]['texture'] = 'rect_test'
+                        object.world[bx][by]['solid'] = False
+
 
 
 
