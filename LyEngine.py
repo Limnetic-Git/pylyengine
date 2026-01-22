@@ -3,6 +3,7 @@ from Scene.Scene import *
 from Objects.Player import *
 from Objects.Object import *
 from Objects.TestObject import *
+from Objects.CustomTileMap import *
 from Modules.Sprite2D import *
 from Modules.Movement import *
 from Modules.SoundEmitter import *
@@ -24,14 +25,14 @@ scene.add_ui_scene(UIScene())
 #scene.ui_scenes[0].create_area(0.1, 0.1, 0.8, 0.8)
 #scene.ui_scenes[0].create_slotlist(inv.inventory, 0.2, 0.2, 64)
 
-tile_map = Tilemap(
+tile_map = CustomTileMap(
     world_width=128,
     world_height=128,
     default_block={'texture': 'cobblestone', 'solid': True},
     layer=0,
     random_flip=True
 )
-tile_map.world[0][0] = {'texture': 'rect_test', 'solid': False, 'flip_x': False, 'flip_y': False}
+tile_map.world[1][1] = {'texture': 'rect_test', 'solid': False, 'flip_x': False, 'flip_y': False}
 
 scene.add_object(tile_map)
 

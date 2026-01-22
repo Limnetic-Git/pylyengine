@@ -37,6 +37,7 @@ class Movement(Module):
             if raylib.IsKeyDown(raylib.KEY_D):
                 self.parent.x += self.parent.speed
                 last_moves.append([self.parent.speed, 0])
+
             for object in self.parent.parent_scene.objects:
                 if hasattr(object, 'name') and object.name == 'tilemap':
                     player_x, player_y = self.parent.x + 5, self.parent.y + 20

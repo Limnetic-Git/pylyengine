@@ -13,7 +13,6 @@ class Tilemap(Object):
         self.random_flip = random_flip
         self.block_scale_x = 1.5
         self.block_scale_y = 1.5
-
         self.world = [[default_block.copy() for _ in range(world_height)]
                       for __ in range(world_width)]
 

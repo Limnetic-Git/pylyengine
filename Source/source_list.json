@@ -11,6 +11,7 @@
 "cobblestone": "Source/cobblestone.png",
 "cobblestone_1": "Source/cobblestone_1.png",
 "cobblestone_2": "Source/cobblestone_2.png",
+"unknown_block": "Source/unknown_block.png",
 
 // ###### SOUNDS ######
 "test_sound": "Source/powerUp.wav"
