@@ -56,7 +56,11 @@ class Player(Object):
                 sprite2d_module.animation_name = 'player_idle_front_animation'
 
         if raylib.IsKeyPressed(raylib.KEY_E):
-            print(self.player_block_x, self.player_block_y)
+            for object in self.parent_scene.objects:
+                if hasattr(object, 'name') and object.name == 'tilemap':
+                    print(object.get_blocks_around(self.player_block_x, self.player_block_y))
+                    break #todo: брейк поскольку я использую всего 1 тайловую карту
+
 
         if raylib.IsMouseButtonReleased(0):
             x = self.parent_scene.camera.mouse_x + 6

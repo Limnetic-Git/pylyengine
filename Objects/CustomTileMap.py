@@ -20,10 +20,17 @@ class CustomTileMap(Tilemap):
                         if j == rect_side_len - 1:
                             if u == rect_side_len - 1:
                                 continue
+                        not_solids_near = [not i['solid'] for i in self.get_blocks_around(cx, cy)]
+                        if any(not_solids_near):
+                            self.overloaded_world[cx][cy] = True
+                            self.now_loaded[cx][cy] = True
 
-                        self.overloaded_world[cx][cy] = True
-                        self.now_loaded[cx][cy] = True
-
+    def get_blocks_around(self, block_x, block_y):
+        blocks_around = []
+        for left_right in [-1, 0, 1]:
+            for up_down in [-1, 0, 1]:
+                blocks_around.append(self.world[block_x + left_right][block_y + up_down])
+        return blocks_around
 
     def update(self):
         camera = self.parent_scene.camera
