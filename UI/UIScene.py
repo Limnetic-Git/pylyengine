@@ -51,8 +51,8 @@ class UIScene:
     def create_texture(self, rel_x, rel_y, rel_width, rel_height, texture_name=None, tint=raylib.WHITE):
         self.ui_elements.append(Texture(self, rel_x, rel_y, rel_width, rel_height, texture_name, tint))
 
-    def create_slotlist(self, array, rel_x, rel_y, slot_size, distance_between=5):
-        self.ui_elements.append(Slotlist(self, array, rel_x, rel_y, slot_size, distance_between))
+    def create_slotlist(self, inventory, rel_x, rel_y, slot_size, distance_between=5):
+        self.ui_elements.append(Slotlist(self, inventory, rel_x, rel_y, slot_size, distance_between))
 
     def update(self):
         for element in self.ui_elements:

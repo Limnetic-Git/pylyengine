@@ -23,7 +23,7 @@ inv.give(Item('Test2', 'block', 'rect_test', 16), 300)
 
 scene.add_ui_scene(UIScene())
 scene.ui_scenes[0].create_area(0.1, 0.1, 0.8, 0.8)
-scene.ui_scenes[0].create_slotlist(inv.inventory, 0.2, 0.2, 64)
+scene.ui_scenes[0].create_slotlist(inv, 0.2, 0.2, 64)
 
 tile_map = CustomTileMap(
     world_width=128,

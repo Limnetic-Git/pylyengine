@@ -12,6 +12,17 @@ class Inventory:
                 column.append(self.null_slot)
             self.inventory.append(column)
 
+    def add_slotsline(self, index=0):
+        self.height += 1
+        for y in range(self.width):
+            self.inventory[y].insert(index, self.null_slot)
+
+    def del_slotsline(self, index=0):
+        self.height -= 1
+        for y in range(self.width):
+            self.inventory[y].pop(index)
+
+
     def __find_empty_slot(self):
         for x in range(self.width):
             for y in range(self.height):

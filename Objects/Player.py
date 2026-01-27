@@ -61,6 +61,17 @@ class Player(Object):
                     print(object.get_blocks_around(self.player_block_x, self.player_block_y))
                     break #todo: брейк поскольку я использую всего 1 тайловую карту
 
+        if raylib.IsKeyPressed(raylib.KEY_T):
+            for object in self.parent_scene.ui_scenes[0].ui_elements:
+                if object.__class__.__name__ == "Slotlist":
+                    object.inventory.add_slotsline()
+                    break
+        if raylib.IsKeyPressed(raylib.KEY_G):
+            for object in self.parent_scene.ui_scenes[0].ui_elements:
+                if object.__class__.__name__ == "Slotlist":
+                    object.inventory.del_slotsline()
+                    break
+
 
         if raylib.IsMouseButtonReleased(0):
             x = self.parent_scene.camera.mouse_x + 6
