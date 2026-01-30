@@ -54,7 +54,7 @@ class Tilemap(Object):
                 end_x = min(self.world_width, int(world_right // tex_width) + 2)
                 end_y = min(self.world_height, int(world_bottom // tex_height) + 2)
 
-                if not self.random_flip:
+                if not 'flip_x' in block:
                     block['flip_x'], block['flip_y'] = False, False
 
                 if block['texture']:

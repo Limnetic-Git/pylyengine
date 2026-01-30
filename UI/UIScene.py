@@ -6,6 +6,7 @@ from UI.UI_Elements.Checkbox import *
 from UI.UI_Elements.Inputfield import *
 from UI.UI_Elements.Texture import *
 from UI.UI_Elements.Slotlist import *
+from UI.UI_Elements.Hotbar import *
 import ast
 import os
 
@@ -53,7 +54,8 @@ class UIScene:
 
     def create_slotlist(self, inventory, rel_x, rel_y, slot_size, distance_between=5):
         self.ui_elements.append(Slotlist(self, inventory, rel_x, rel_y, slot_size, distance_between))
-
+    def create_hotbar(self, inventory, rel_x, rel_y, slot_size, slotline_index=0, distance_between=5):
+        self.ui_elements.append(Hotbar(self, inventory, rel_x, rel_y, slot_size, slotline_index, distance_between))
     def update(self):
         for element in self.ui_elements:
             element.update()

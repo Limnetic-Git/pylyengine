@@ -71,7 +71,6 @@ class Slotlist:
                 if mouse_over:
                     render_mode = "hover"
                     if raylib.IsMouseButtonReleased(0):
-
                         if not self.item_buffer['item'] and self.array[x][y]['item'] and self.selected_slot == [x, y]:
                             if self.array[x][y]['count'] > 0:
                                 self.item_buffer = {
@@ -79,14 +78,18 @@ class Slotlist:
                                     'count': 1,
                                     'parent_slot': [x, y],
                                 }
+                            self.selected_slot = [x, y]
+
                         elif self.item_buffer['item']:
                             if self.selected_slot == [x, y]:
                                 if self.item_buffer['count'] + 1 <= self.array[x][y]['count']:
                                     self.item_buffer['count'] += 1
-                            else:
                                 self.selected_slot = [x, y]
-                                self.transfer(self.selected_slot)
-                        self.selected_slot = [x, y]
+                            else:
+
+                                if not self.array[x][y]['item'] or self.array[x][y]['count'] != self.array[x][y]['item'].stack:
+                                    self.selected_slot = [x, y]
+                                    self.transfer(self.selected_slot)
 
                     elif raylib.IsMouseButtonReleased(1) and self.array[x][y]['item']:
                         self.selected_slot = [x, y]

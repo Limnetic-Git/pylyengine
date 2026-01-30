@@ -10,7 +10,6 @@ class Scene:
         self._needs_layer_sort = False
         self.camera = Camera2D(self)
 
-
     def add_ui_scene(self, ui_scene):
         ui_scene.set_parent_scene(self)
         self.ui_scenes.append(ui_scene)
@@ -47,7 +46,9 @@ class Scene:
         self.window.height = raylib.GetScreenHeight()
 
         raylib.BeginDrawing()
-        raylib.ClearBackground(raylib.WHITE)
+        raylib.ClearBackground((20, 24, 46, 255))
+
+
         if self._needs_layer_sort:
             self.sort_objects_by_layer()
         self.camera.update()
